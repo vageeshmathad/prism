@@ -1,0 +1,217 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* PRISM Design Tokens — CSS Variables */
+  --primary: #2563EB;
+  --primary-hover: #1D4ED8;
+  --background: #F8FAFC;
+  --canvas: #F8FAFC;
+  --surface: #FFFFFF;
+  --surface-secondary: #F1F5F9;
+  --border: #E2E8F0;
+  --border-subtle: #F1F5F9;
+  --primary-text: #0F172A;
+  --secondary-text: #475569;
+  --muted-text: #94A3B8;
+
+  /* Status Colors */
+  --success: #16A34A;
+  --warning: #D97706;
+  --danger: #DC2626;
+  --info: #0284C7;
+
+  /* Backward Compatibility */
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #94A3B8;
+  --brand: #2563EB;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    background-color: var(--background);
+    color: var(--primary-text);
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11';
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  a, a:visited {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  button {
+    font-family: inherit;
+  }
+
+  /* Linear-style ultra-thin scrollbars */
+  ::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+
+  ::selection {
+    background: #DBEAFE;
+    color: #1E40AF;
+  }
+
+  :focus-visible {
+    outline: 2px solid #2563EB;
+    outline-offset: 1px;
+  }
+}
+
+@layer components {
+  /* ── Typography Hierarchy Tokens ────────────────────────────────────────── */
+  .page-title {
+    font-size: 1.125rem; /* 18px */
+    line-height: 1.75rem;
+    font-weight: 700;
+    color: #0F172A;
+    letter-spacing: -0.02em;
+  }
+  @media (min-width: 640px) {
+    .page-title {
+      font-size: 1.25rem; /* 20px */
+    }
+  }
+
+  .section-heading {
+    font-size: 0.875rem; /* 14px */
+    line-height: 1.25rem;
+    font-weight: 700;
+    color: #0F172A;
+    letter-spacing: -0.015em;
+  }
+
+  .card-heading {
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1.125rem;
+    font-weight: 600;
+    color: #0F172A;
+    letter-spacing: -0.01em;
+  }
+
+  .body-text {
+    font-size: 0.8125rem; /* 13px */
+    line-height: 1.375rem;
+    color: #475569;
+  }
+
+  .secondary-text {
+    font-size: 0.75rem; /* 12px */
+    line-height: 1rem;
+    color: #64748B;
+  }
+
+  .label-text {
+    font-size: 0.6875rem; /* 11px */
+    line-height: 0.875rem;
+    font-weight: 600;
+    color: #64748B;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .technical-value {
+    font-family: var(--font-mono, "JetBrains Mono", Menlo, monospace);
+    font-size: 0.75rem;
+    line-height: 1rem;
+    letter-spacing: -0.01em;
+  }
+
+  /* ── Component Primitives ─────────────────────────────────────────────── */
+  /* Linear-style clean surface card */
+  .linear-card {
+    background-color: #FFFFFF;
+    border: 1px solid #E2E8F0;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03);
+  }
+
+  /* SonarCloud rating letter pill */
+  .sonar-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    border-radius: 4px;
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: -0.01em;
+  }
+
+  .sonar-badge-a {
+    background-color: #F0FDF4;
+    color: #15803D;
+    border: 1px solid #BBF7D0;
+  }
+
+  .sonar-badge-b {
+    background-color: #FFFBEB;
+    color: #B45309;
+    border: 1px solid #FDE68A;
+  }
+
+  .sonar-badge-c {
+    background-color: #FEF2F2;
+    color: #B91C1C;
+    border: 1px solid #FECACA;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .animate-in {
+    animation: fadeIn 0.25s ease-out;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(2px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}

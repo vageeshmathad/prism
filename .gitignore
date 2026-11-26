@@ -1,0 +1,154 @@
+# ============================================================
+# PRISM — Comprehensive .gitignore
+# ============================================================
+
+# ------ Node / npm ------
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+.npm
+.yarn/
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+package-lock.json.bak
+
+# ------ Environment & Secrets ------
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.production
+*.pem
+*.key
+secrets/
+*.secret
+
+# Keep the template
+!.env.example
+
+# ------ Next.js ------
+frontend/.next/
+frontend/out/
+frontend/build/
+frontend/.vercel/
+frontend/next-env.d.ts
+
+# ------ TypeScript ------
+*.tsbuildinfo
+dist/
+build/
+*.js.map
+
+# ------ Backend / Prisma ------
+backend/dist/
+backend/build/
+backend/prisma/migrations/dev/
+
+# ------ Python / Analysis Service ------
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+eggs/
+parts/
+var/
+sdist/
+develop-eggs/
+.installed.cfg
+lib/
+lib64/
+.eggs/
+*.egg-link
+*.manifest
+*.spec
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+htmlcov/
+.mypy_cache/
+.ruff_cache/
+.pytype/
+.pyre/
+venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
+analysis-service/.venv/
+
+# ------ Docker ------
+# (Don't ignore compose files, do ignore local override)
+docker-compose.override.yml
+
+# ------ Databases ------
+*.sqlite
+*.sqlite3
+*.db
+postgres-data/
+pgdata/
+redis-data/
+
+# ------ Logs ------
+logs/
+*.log
+log/
+
+# ------ OS / Editor ------
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+desktop.ini
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+# ------ Testing ------
+coverage/
+.nyc_output/
+test-results/
+playwright-report/
+e2e/screenshots/
+
+# ------ Misc ------
+*.bak
+*.tmp
+*.temp
+.cache/
+.parcel-cache/
+.turbo/
+.eslintcache
+.stylelintcache
+storybook-static/
